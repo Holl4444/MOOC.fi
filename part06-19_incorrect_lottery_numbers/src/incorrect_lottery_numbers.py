@@ -4,6 +4,7 @@ def check_valid_line(line: list[str]) -> bool:
     try:         
         week = line[0].split()[1]
         only_ints = week.isdigit()
+        # prevent ValueError at valid_week_number = 0 < int(week) <= 52
         if not only_ints:
             return False
         valid_week_length = 0 < len(week) <= 2
@@ -19,6 +20,7 @@ def check_valid_int_list(numbers: list[str]) -> bool:
         valid_digit_list = []
         for number in numbers:
             valid_number_type = number.isdigit()
+            # Prevent ValueError at in_number_range = 0 < int(number) < 40
             if not valid_number_type:
                 return False
             valid_number_of_digits = 0 < len(number) < 3
