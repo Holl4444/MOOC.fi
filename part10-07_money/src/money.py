@@ -57,8 +57,7 @@ class Money:
         value = round(this - the_other, 2)
         if value < 0:
             raise ValueError("Object of type 'Money' cannot be negative.")
-        euros = int(value)
-        cents = round((value - euros) * 100)
+        euros, cents = Money.__get_euros_and_cents(value)
         return Money(euros, cents)
 
 
